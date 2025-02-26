@@ -1,6 +1,11 @@
 import re
-#import sys
 import ctypes
+kernel32 = ctypes.windll.kernel32
+kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
+import colorama
+from colorama import Fore, Back, Style
+colorama.init()
+
 
 # Список вопросов и ответов
 questions = [
@@ -21,16 +26,16 @@ def ask_question(question, correct_answer):
         user_answer = input(question + "\n").strip()
         user_answer = re.sub('[^A-Za-z0-9%А-Яа-я]', '', user_answer)  # Очистка ввода
         if user_answer.lower() == correct_answer.lower():
-            print(f"Ответ {user_answer} верный")
+            print(Fore.GREEN + f"Ответ {user_answer} верный" + Style.RESET_ALL + "\n")
             break
         else:
-            print("\033[4m\033[37m\033[41m{}\033[0m".format("Неверный ответ. Попробуйте еще раз."))
+            print("\033[4m\033[37m\033[41m{}\033[0m".format(f"Неверный ответ. Попробуйте еще раз."))
 
 # Основной цикл программы
 for q in questions:
     ask_question(q["question"], q["answer"])
 
-print("\033[1;32;40m Поздравляем, вы ответили на n вопросов!  \n")
+print("\033[1;32;40m Поздравляем, вы ответили на 10 вопросов!  \n")
 
 
 # print("\033[1;32;40m Bright Green  \n")
