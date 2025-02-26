@@ -30,8 +30,7 @@ def ask_question(question, correct_answer):
 for q in questions:
     ask_question(q["question"], q["answer"])
 
-print("\033[1;32;40m Bright Green  \n")
-print("Поздравляем, вы ответили на 10 вопросов!")
+print("\033[1;32;40m Поздравляем, вы ответили на n вопросов!  \n")
 
 
 # print("\033[1;32;40m Bright Green  \n")
