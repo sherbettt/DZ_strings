@@ -18,12 +18,12 @@ print(start)
 print(date)
 
 error_counter = 0
-print('Какая версия языка PYTHON сейчас актуальна?')
+print('\nКакая версия языка PYTHON сейчас актуальна?')
 question1 = 'Python3'
 while True:
     answer1 = str(input())
     answer1 = re.sub('[^A-Za-z0-9%А-Яа-я]','', answer1)
-    if str.lower(question1) == str.lower(answer1):
+    if question1.lower() == answer1.lower():
         print(f'Ответ {answer1} верный')
         break
     elif str.lower(question1) != answer1:
@@ -31,7 +31,7 @@ while True:
         print("\033[4m\033[37m\033[41m{}\033[0m".format("Неверный ответ. Попробуйте еще раз." + "\n"))
         error_counter+=1
 
-print('Какая кодировка используется в строках?')
+print('\nКакая кодировка используется в строках?')
 question2 = 'utf8'
 while True:
     answer2 = str(input())
@@ -42,11 +42,11 @@ while True:
 #        exit()
     elif str.lower(question2) != answer2:
 #        print(f'Неверный ответ. Попробуйте еще раз.')
-        print(Fore.RED + 'Неверный ответ. Попробуйте еще раз.')
+        print(Fore.RED + 'Неверный ответ. Попробуйте еще раз. \n')
         print(Style.RESET_ALL + 'ещё раз подумай: ')
         error_counter+=1
 
-print('Как называется метод сортировки?')
+print('\nКак называется метод сортировки?')
 question3 = 'sort'
 while True:
     answer3 = str(input())
@@ -59,7 +59,7 @@ while True:
         print('Ответ НЕверный. \nПопробуй ещё раз:')
         error_counter+=1
 
-print('Сколько значений есть у bool')
+print('\nСколько значений есть у bool')
 question4 = "2"
 while True:
     answer4 = str(input())
