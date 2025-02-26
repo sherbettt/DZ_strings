@@ -17,7 +17,7 @@ while True:
         print(f'Ответ {answer1} верный')
         break
     elif str.lower(question1) != answer1:
-        print(f'Ответ {answer1} НЕверный')
+        print(f'Ответ НЕверный. \nПопробуй ещё раз.')
 
 print('Какая кодировка используется в строках?')
 question2 = 'utf8'
@@ -27,8 +27,9 @@ while True:
     if str.lower(question2) == str.lower(answer2):
         print(f'Ответ {answer1} верный')
         break
+#        exit()
     elif str.lower(question2) != answer2:
-        print(f'Ответ {answer2} НЕверный')
+        print(f'Ответ НЕверный. \nПопробуй ещё раз.')
 
 print('Как называется метод сортировки?')
 question3 = 'sort'
@@ -38,8 +39,9 @@ while True:
     if str.lower(question3) == str.lower(answer3):
         print(f'Ответ {answer3} верный')
         break
+#        exit()
     elif str.lower(question3) != answer3:
-        print(f'Ответ {answer3} НЕверный')
+        print(f'Ответ НЕверный. \nПопробуй ещё раз.')
 
 print('Сколько значений есть у bool')
 question4 = "2"
@@ -64,3 +66,20 @@ while True:
 
 ## чтобы задать рекурсию вопроса в случае неправильного ответа, внутри цикла while нужно дать ответ,
 ## т.е. поставить break или exit() после совпадения значения строк в зависмости от завершения цикла/программы.
+
+#from colorama import init, Fore
+#from colorama import Back
+#from colorama import Style
+
+#init(autoreset=True)
+
+#print(Fore.BLUE + 'some red text')
+#print(Back.WHITE + 'and with a green background')
+#print(Style.BRIGHT + 'and in dim text')
+#print(Style.RESET_ALL)
+#print('back to normal now')
+
+#from termcolor import colored, cprint
+#print(colored('Привет мир!', 'red', attrs=['underline']))
+#print('Привет, я люблю тебя!')
+#cprint('Вывод с помощью cprint', 'green', 'on_blue')
