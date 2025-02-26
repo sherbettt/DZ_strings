@@ -1,6 +1,6 @@
 import re
 #import sys
-
+import ctypes
 
 # Список вопросов и ответов
 questions = [
@@ -24,7 +24,7 @@ def ask_question(question, correct_answer):
             print(f"Ответ {user_answer} верный")
             break
         else:
-            print("Неверный ответ. Попробуйте еще раз.")
+            print("\033[4m\033[37m\033[41m{}\033[0m".format("Неверный ответ. Попробуйте еще раз."))
 
 # Основной цикл программы
 for q in questions:
