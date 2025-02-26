@@ -1,7 +1,16 @@
 import re
 import time
 import datetime
-
+# часть импорта для цветного вывода через colorama
+import ctypes
+kernel32 = ctypes.windll.kernel32
+kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
+#
+from termcolor import colored, cprint
+import colorama
+from colorama import Fore, Back, Style
+colorama.init()
+#----
 
 start = datetime.datetime.now().time() # время
 date = datetime.date.today().year # год
@@ -17,7 +26,8 @@ while True:
         print(f'Ответ {answer1} верный')
         break
     elif str.lower(question1) != answer1:
-        print(f'Ответ НЕверный. \nПопробуй ещё раз.')
+        #print(f'Ответ НЕверный. \nПопробуй ещё раз.')
+        print("\033[4m\033[37m\033[41m{}\033[0m".format("Неверный ответ. Попробуйте еще раз."))
 
 print('Какая кодировка используется в строках?')
 question2 = 'utf8'
@@ -29,7 +39,9 @@ while True:
         break
 #        exit()
     elif str.lower(question2) != answer2:
-        print(f'Ответ НЕверный. \nПопробуй ещё раз.')
+#        print(f'Неверный ответ. Попробуйте еще раз.')
+        print(Fore.RED + 'Неверный ответ. Попробуйте еще раз.')
+        print(Style.RESET_ALL + 'ещё раз подумай: ')
 
 print('Как называется метод сортировки?')
 question3 = 'sort'
@@ -66,20 +78,3 @@ while True:
 
 ## чтобы задать рекурсию вопроса в случае неправильного ответа, внутри цикла while нужно дать ответ,
 ## т.е. поставить break или exit() после совпадения значения строк в зависмости от завершения цикла/программы.
-
-#from colorama import init, Fore
-#from colorama import Back
-#from colorama import Style
-
-#init(autoreset=True)
-
-#print(Fore.BLUE + 'some red text')
-#print(Back.WHITE + 'and with a green background')
-#print(Style.BRIGHT + 'and in dim text')
-#print(Style.RESET_ALL)
-#print('back to normal now')
-
-#from termcolor import colored, cprint
-#print(colored('Привет мир!', 'red', attrs=['underline']))
-#print('Привет, я люблю тебя!')
-#cprint('Вывод с помощью cprint', 'green', 'on_blue')
