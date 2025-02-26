@@ -17,6 +17,7 @@ date = datetime.date.today().year # год
 print(start)
 print(date)
 
+error_counter = 0
 print('Какая версия языка PYTHON сейчас актуальна?')
 question1 = 'Python3'
 while True:
@@ -27,7 +28,8 @@ while True:
         break
     elif str.lower(question1) != answer1:
         #print(f'Ответ НЕверный. \nПопробуй ещё раз.')
-        print("\033[4m\033[37m\033[41m{}\033[0m".format("Неверный ответ. Попробуйте еще раз."))
+        print("\033[4m\033[37m\033[41m{}\033[0m".format("Неверный ответ. Попробуйте еще раз." + "\n"))
+        error_counter+=1
 
 print('Какая кодировка используется в строках?')
 question2 = 'utf8'
@@ -42,6 +44,7 @@ while True:
 #        print(f'Неверный ответ. Попробуйте еще раз.')
         print(Fore.RED + 'Неверный ответ. Попробуйте еще раз.')
         print(Style.RESET_ALL + 'ещё раз подумай: ')
+        error_counter+=1
 
 print('Как называется метод сортировки?')
 question3 = 'sort'
@@ -54,6 +57,7 @@ while True:
 #        exit()
     elif str.lower(question3) != answer3:
         print('Ответ НЕверный. \nПопробуй ещё раз:')
+        error_counter+=1
 
 print('Сколько значений есть у bool')
 question4 = "2"
@@ -66,10 +70,11 @@ while True:
 #        exit()
     elif str.lower(question4) != answer4:
         print('Ответ НЕверный. \nПопробуй ещё раз:')
+        error_counter+=1
 
 
-print("\033[1;32;40m Bright Green  \n")
-print("Поздравляем, вы ответили на n вопросов!")
+print("\033[1;32;40m Поздравляем, вы ответили на n вопросов!  \n")
+print(f"Кол-во ошибок за время теста: {error_counter} шт.")
 
 # функция  re.sub() : для ввода любых символов в любом регистре;
 # Использование re.sub для очистки ввода — это отличный подход, который делает проверку ответов более гибкой.
