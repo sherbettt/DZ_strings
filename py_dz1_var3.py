@@ -21,7 +21,9 @@ questions = [
     {"question": "Достаточно вопросов? [Y]", "answer": "Y"},
 ]
 
+
 def ask_question(question, correct_answer):
+    error_counter = 0
     while True:
         user_answer = input(question + "\n").strip()
         user_answer = re.sub('[^A-Za-z0-9%А-Яа-я]', '', user_answer)  # Очистка ввода
@@ -30,12 +32,16 @@ def ask_question(question, correct_answer):
             break
         else:
             print("\033[4m\033[37m\033[41m{}\033[0m".format(f"Неверный ответ. Попробуйте еще раз."))
+            error_counter+=1
+            print(f"Кол-во ошибок за время теста: {error_counter} шт.")
+            
 
 # Основной цикл программы
 for q in questions:
     ask_question(q["question"], q["answer"])
 
 print("\033[1;32;40m Поздравляем, вы ответили на 10 вопросов!  \n")
+
 
 
 # print("\033[1;32;40m Bright Green  \n")
