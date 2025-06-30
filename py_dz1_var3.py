@@ -1,3 +1,5 @@
+!#/usr/bin/python3
+
 import re
 import ctypes
 kernel32 = ctypes.windll.kernel32
